@@ -15,8 +15,8 @@ Feature: Processo
     And eu preencho o campo de Juizo com "2ª vara cívil - GUS"
     And eu preencho o campo de numero com "123456-789.0"
     And eu preencho o campo de Ultima movimentacao com "Aguardando despacho"
-    And eu preencho o campo de Ultimo contato cliente com a data "2019-08-01"
-    And eu preencho o campo de Contato agendado com a data "2019-12-01"
+    And eu preencho o campo de Ultimo contato cliente com o dia "1", o mes "August" e o ano "2019"
+    And eu preencho o campo de Contato agendado com o dia "31", o mes "December" e o ano "2019"
     And eu preencho o campo de Adv principal com "nome do advogado"
     And eu preencho o campo de Adv assistente com "nome do advogado assistente"
     And eu clico em adicionar processo
