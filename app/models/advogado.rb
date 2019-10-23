@@ -1,3 +1,2 @@
 class Advogado < ApplicationRecord
-
 end
