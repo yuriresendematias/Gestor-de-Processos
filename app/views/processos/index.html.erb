@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Processos</h1>
+<hr>
+<%= form_tag(processos_path, :method => :get) do %>
+  <%=text_field_tag 'search', nil, placeholder: 'Nº do processo' %>
+  <%=submit_tag "Buscar" %>
+<%end %>
+
 <%= link_to "Voltar", advogados_path %>
 <table>
   <thead>
