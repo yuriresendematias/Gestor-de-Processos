@@ -19,7 +19,7 @@ Feature: Processo
     And eu preencho o campo de Contato agendado com o dia "31", o mes "December" e o ano "2019"
     And eu preencho o campo de Adv principal com "nome do advogado"
     And eu preencho o campo de Adv assistente com "nome do advogado assistente"
-    And eu clico em adicionar processo
+    And eu clico em confirmar
     Then eu vejo que o processo com o numero "123456" foi criado corretamente
 
   Scenario: removendo um processo
@@ -27,6 +27,15 @@ Feature: Processo
     And eu estou na pagina de processos
     And existe um processo com o numero "123"
     And eu vejo o processo com o numero "123"
-    When eu clico em removero processo com o numero "123"
-    Then eu vejo que o processo foi removido corretamente
+    When eu clico em remover processo com o numero "123"
+    Then eu vejo que o processo com o numero "123" foi removido corretamente
 
+  Scenario: editar um processo
+    Given eu estou logado no sistema
+    And eu estou na pagina de processos
+    And existe um processo com o numero "123"
+    And eu vejo o processo com o numero "123"
+    When eu clico em editar o processo com o numero "123"
+    And eu preencho o campo de Ultima movimentacao com "movimentação mais recente"
+    And eu clico em confirmar
+    Then eu vejo que o campo ultima movimentacao do processo com o numero "123" foi editado para "movimentação mais recente"

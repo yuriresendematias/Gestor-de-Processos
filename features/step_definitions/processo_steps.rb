@@ -71,7 +71,7 @@ And ('eu preencho o campo de Adv assistente com {string}') do |nome|
   fill_in 'Adv assistente', :with => nome
 end
 
-And ('eu clico em adicionar processo') do
+And ('eu clico em confirmar') do
   click_button 'submit'
 end
 
@@ -92,11 +92,21 @@ And ('eu vejo o processo com o numero {string}') do |num|
   expect(page).to have_content(num)
 end
 
-When ('eu clico em removero processo com o numero {string}') do |num|
-  click_link 'Destroy'
+When ('eu clico em remover processo com o numero {string}') do |num|
+  click_link "d-#{num}"
 end
 
 
-Then ('eu vejo que o processo foi removido corretamente') do
-  expect(page).to have_content('Processo was successfully destroyed')
+Then ('eu vejo que o processo com o numero {string} foi removido corretamente') do |num|
+  expect(page).to have_no_content(num)
+end
+
+When ('eu clico em editar o processo com o numero {string}') do |num|
+  click_link "e-#{num}"
+end
+
+
+Then ('eu vejo que o campo ultima movimentacao do processo com o numero {string} foi editado para {string}') do |num, text|
+  expect(page).to have_content(num)
+  expect(page).to have_content(text)
 end

@@ -37,8 +37,8 @@
         <td><%= processo.adv_principal %></td>
         <td><%= processo.adv_assistente %></td>
         <td><%= link_to 'Show', processo %></td>
-        <td><%= link_to 'Edit', edit_processo_path(processo) %></td>
-        <td><%= link_to 'Destroy', processo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_processo_path(processo), id: "e-#{processo.num_processo}" %></td>
+        <td><%= link_to 'Destroy', processo, id: "d-#{processo.num_processo}" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
