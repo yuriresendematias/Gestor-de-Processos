@@ -24,13 +24,13 @@ Feature: Processo
 
   Scenario: removendo um processo
     Given eu estou logado no sistema
-    And eu estou na pagina de processos
     And existe um processo com o numero "123"
+    And eu estou na pagina de processos
     And eu vejo o processo com o numero "123"
     When eu clico em remover processo com o numero "123"
     Then eu vejo que o processo com o numero "123" foi removido corretamente
 
-  Scenario: editar um processo
+  Scenario: editando um processo
     Given eu estou logado no sistema
     And eu estou na pagina de processos
     And existe um processo com o numero "123"
@@ -39,3 +39,12 @@ Feature: Processo
     And eu preencho o campo de Ultima movimentacao com "movimentação mais recente"
     And eu clico em confirmar
     Then eu vejo que o campo ultima movimentacao do processo com o numero "123" foi editado para "movimentação mais recente"
+
+  Scenario: exibindo detalhes de um processo
+    Given eu estou logado no sistema
+    And existe um processo com o numero "123"
+    And eu estou na pagina de processos
+    And eu vejo o processo com o numero "123"
+    When eu clico em ver detalhes do processo com o numero "123"
+    Then eu vejo a pagina do processo que tem o numero "123"
+

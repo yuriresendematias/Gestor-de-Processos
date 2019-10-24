@@ -110,3 +110,11 @@ Then ('eu vejo que o campo ultima movimentacao do processo com o numero {string}
   expect(page).to have_content(num)
   expect(page).to have_content(text)
 end
+
+When ('eu clico em ver detalhes do processo com o numero {string}') do |num|
+  click_link "s-#{num}"
+end
+
+Then ('eu vejo a pagina do processo que tem o numero {string}') do |num|
+  expect(page).to have_content("Processo - #{num}")
+end
