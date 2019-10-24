@@ -118,3 +118,11 @@ end
 Then ('eu vejo a pagina do processo que tem o numero {string}') do |num|
   expect(page).to have_content("Processo - #{num}")
 end
+
+When ('eu preencho o campo de pesquisa com o numero {string}') do |num|
+  fill_in 'search', :with => num
+end
+
+And ('eu clico em buscar') do
+  click_button 'Buscar'
+end

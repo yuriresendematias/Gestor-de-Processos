@@ -48,3 +48,11 @@ Feature: Processo
     When eu clico em ver detalhes do processo com o numero "123"
     Then eu vejo a pagina do processo que tem o numero "123"
 
+  Scenario: pesquisando um processo pelo seu numero
+    Given eu estou logado no sistema
+    And existe um processo com o numero "123"
+    And eu estou na pagina de processos
+    When eu preencho o campo de pesquisa com o numero "123"
+    And eu clico em buscar
+    Then eu vejo o processo com o numero "123"
+
