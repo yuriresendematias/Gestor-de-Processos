@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191020034848) do
+ActiveRecord::Schema.define(version: 20191023235035) do
+
+  create_table "advogados", force: :cascade do |t|
+    t.string "nome"
+    t.string "email"
+    t.string "n_OAB"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "processos", force: :cascade do |t|
     t.string "cliente"
