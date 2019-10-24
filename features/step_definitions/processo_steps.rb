@@ -78,3 +78,25 @@ end
 Then ('eu vejo que o processo com o numero {string} foi criado corretamente') do |num|
   expect(page).to have_content(num)
 end
+
+And ('existe um processo com o numero {string}') do |num|
+  p = Processo.new(:cliente => 'cliente', :ex_adversa =>'opositor', :tipo_acao => 'tipo de ação',
+                   :juizo => 'juizo', :num_processo => num, :ultima_movimentacao => 'Historico',
+                   :ultimo_contato_cliente => Date.current, :contato_agendado => Date.current.tomorrow,
+                   :adv_principal => 'principal', :adv_assistente => 'assistente')
+  p.save!
+end
+
+And ('eu vejo o processo com o numero {string}') do |num|
+  visit '/processos'
+  expect(page).to have_content(num)
+end
+
+When ('eu clico em removero processo com o numero {string}') do |num|
+  click_link 'Destroy'
+end
+
+
+Then ('eu vejo que o processo foi removido corretamente') do
+  expect(page).to have_content('Processo was successfully destroyed')
+end

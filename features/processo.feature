@@ -22,3 +22,11 @@ Feature: Processo
     And eu clico em adicionar processo
     Then eu vejo que o processo com o numero "123456" foi criado corretamente
 
+  Scenario: removendo um processo
+    Given eu estou logado no sistema
+    And eu estou na pagina de processos
+    And existe um processo com o numero "123"
+    And eu vejo o processo com o numero "123"
+    When eu clico em removero processo com o numero "123"
+    Then eu vejo que o processo foi removido corretamente
+
