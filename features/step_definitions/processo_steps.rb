@@ -71,10 +71,58 @@ And ('eu preencho o campo de Adv assistente com {string}') do |nome|
   fill_in 'Adv assistente', :with => nome
 end
 
-And ('eu clico em adicionar processo') do
+And ('eu clico em confirmar') do
   click_button 'submit'
 end
 
 Then ('eu vejo que o processo com o numero {string} foi criado corretamente') do |num|
   expect(page).to have_content(num)
+end
+
+And ('existe um processo com o numero {string}') do |num|
+  p = Processo.new(:cliente => 'cliente', :ex_adversa =>'opositor', :tipo_acao => 'tipo de ação',
+                   :juizo => 'juizo', :num_processo => num, :ultima_movimentacao => 'Historico',
+                   :ultimo_contato_cliente => Date.current, :contato_agendado => Date.current.tomorrow,
+                   :adv_principal => 'principal', :adv_assistente => 'assistente')
+  p.save!
+end
+
+And ('eu vejo o processo com o numero {string}') do |num|
+  visit '/processos'
+  expect(page).to have_content(num)
+end
+
+When ('eu clico em remover processo com o numero {string}') do |num|
+  click_link "d-#{num}"
+end
+
+
+Then ('eu vejo que o processo com o numero {string} foi removido corretamente') do |num|
+  expect(page).to have_no_content(num)
+end
+
+When ('eu clico em editar o processo com o numero {string}') do |num|
+  click_link "e-#{num}"
+end
+
+
+Then ('eu vejo que o campo ultima movimentacao do processo com o numero {string} foi editado para {string}') do |num, text|
+  expect(page).to have_content(num)
+  expect(page).to have_content(text)
+end
+
+When ('eu clico em ver detalhes do processo com o numero {string}') do |num|
+  click_link "s-#{num}"
+end
+
+Then ('eu vejo a pagina do processo que tem o numero {string}') do |num|
+  expect(page).to have_content("Processo - #{num}")
+end
+
+When ('eu preencho o campo de pesquisa com o numero {string}') do |num|
+  fill_in 'search', :with => num
+end
+
+And ('eu clico em buscar') do
+  click_button 'Buscar'
 end
