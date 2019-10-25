@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Processos</h1>
-<%= link_to "Exit", destroy_user_session_path, method: :delete %>
+<hr>
+<%= form_tag(processos_path, :method => :get) do %>
+  <%=text_field_tag 'search', nil, placeholder: 'Nº do processo' %>
+  <%=submit_tag "Buscar" %>
+<%end %>
+
+<%= link_to "Voltar", advogados_path %>
 <table>
   <thead>
     <tr>
       <th>Cliente</th>
-      <th>Ex adversa</th>
-      <th>Natureza</th>
-      <th>Assunto</th>
-      <th>Tipo acao</th>
-      <th>Juizo</th>
-      <th>Num processo</th>
-      <th>Ultima movimentacao</th>
-      <th>Ultimo contato cliente</th>
-      <th>Contato agendado</th>
-      <th>Adv principal</th>
-      <th>Adv assistente</th>
-      <th colspan="3"></th>
+      <th>Numero do processo</th>
     </tr>
   </thead>
 
@@ -25,20 +20,10 @@
     <% @processos.each do |processo| %>
       <tr>
         <td><%= processo.cliente %></td>
-        <td><%= processo.ex_adversa %></td>
-        <td><%= processo.natureza %></td>
-        <td><%= processo.assunto %></td>
-        <td><%= processo.tipo_acao %></td>
-        <td><%= processo.juizo %></td>
         <td><%= processo.num_processo %></td>
-        <td><%= processo.ultima_movimentacao %></td>
-        <td><%= processo.ultimo_contato_cliente %></td>
-        <td><%= processo.contato_agendado %></td>
-        <td><%= processo.adv_principal %></td>
-        <td><%= processo.adv_assistente %></td>
-        <td><%= link_to 'Show', processo %></td>
-        <td><%= link_to 'Edit', edit_processo_path(processo) %></td>
-        <td><%= link_to 'Destroy', processo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', processo, id: "s-#{processo.num_processo}" %></td>
+        <td><%= link_to 'Edit', edit_processo_path(processo), id: "e-#{processo.num_processo}" %></td>
+        <td><%= link_to 'Destroy', processo, id: "d-#{processo.num_processo}" ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
