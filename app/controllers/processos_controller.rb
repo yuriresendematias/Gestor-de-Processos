@@ -5,7 +5,11 @@ class ProcessosController < ApplicationController
   # GET /processos
   # GET /processos.json
   def index
-    @processos = Processo.all
+    if params[:search]
+      @processos = Processo.all.search(params[:search])
+    else
+      @processos = Processo.all
+    end
   end
 
   # GET /processos/1

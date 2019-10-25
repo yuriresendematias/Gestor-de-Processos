@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'processos#index'
+  resources :advogados
+  root 'advogados#index'
 
   devise_for :users
   resources :processos
