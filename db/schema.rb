@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191023235035) do
+ActiveRecord::Schema.define(version: 20191027000022) do
+
+  create_table "Advogados_Processos", id: false, force: :cascade do |t|
+    t.integer "Advogado_id", null: false
+    t.integer "Processo_id", null: false
+  end
+
+  create_table "advogado_processos", force: :cascade do |t|
+    t.boolean "principal"
+    t.integer "advogado_id"
+    t.integer "processo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["advogado_id"], name: "index_advogado_processos_on_advogado_id"
+    t.index ["processo_id"], name: "index_advogado_processos_on_processo_id"
+  end
 
   create_table "advogados", force: :cascade do |t|
     t.string "nome"

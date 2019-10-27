@@ -62,13 +62,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :adv_principal %>
-    <%= form.text_field :adv_principal, id: :processo_adv_principal %>
+    <%= form.label :advogado_principal %>
+    <%= form.collection_select(:advogado_id, Advogado.all, :id, :nome, include_blank: true) %>
+
   </div>
 
   <div class="field">
-    <%= form.label :adv_assistente %>
-    <%= form.text_field :adv_assistente, id: :processo_adv_assistente %>
+    <%= form.label :advogado_assistente %>
+    <%= form.collection_select(:advogado_id, Advogado.all, :id, :nome, include_blank: true) %>
+
   </div>
 
   <div class="actions">

@@ -55,12 +55,14 @@
 
 <p>
   <strong>Adv principal:</strong>
-  <%= @processo.adv_principal %>
+  <%= @processo.advogados.size %>
 </p>
 
 <p>
   <strong>Adv assistente:</strong>
-  <%= @processo.adv_assistente %>
+  <% @processo.advogados.each do |a| %>
+    <%= a.nome %>
+  <%end %>
 </p>
 
 <%= link_to 'Edit', edit_processo_path(@processo) %> |
