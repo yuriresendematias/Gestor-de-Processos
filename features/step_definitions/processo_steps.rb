@@ -1,5 +1,5 @@
 Given ('eu estou logado no sistema') do
-  u = User.new(:name => 'nome do usuario', :email => 'usuario@email.com', :password => '123456', :password_confirmation => '123456')
+  u = User.new(:email => 'usuario@email.com', :password => '123456', :password_confirmation => '123456')
   u.save!
   visit '/users/sign_in'
   expect(page).to have_content('Log in')
@@ -47,10 +47,6 @@ And ('eu preencho o campo de numero com {string}') do |num|
   fill_in 'processo_num_processo', :with => num
 end
 
-And ('eu preencho o campo de Ultima movimentacao com {string}') do |texto|
-  fill_in 'processo_ultima_movimentacao', :with => texto
-end
-
 And ('eu preencho o campo de Ultimo contato cliente com o dia {string}, o mes {string} e o ano {string}') do |dia, mes, ano|
   select ano, :from => 'processo_ultimo_contato_cliente_1i'
   select mes, :from => 'processo_ultimo_contato_cliente_2i'
@@ -81,9 +77,9 @@ end
 
 And ('existe um processo com o numero {string}') do |num|
   p = Processo.new(:cliente => 'cliente', :ex_adversa =>'opositor', :tipo_acao => 'tipo de ação',
-                   :juizo => 'juizo', :num_processo => num, :ultima_movimentacao => 'Historico',
-                   :ultimo_contato_cliente => Date.current, :contato_agendado => Date.current.tomorrow,
-                   :adv_principal => 'principal', :adv_assistente => 'assistente')
+                   :juizo => 'juizo', :num_processo => num, :ultimo_contato_cliente => Date.current,
+                   :contato_agendado => Date.current.tomorrow, :adv_principal => 'principal',
+                   :adv_assistente => 'assistente')
   p.save!
 end
 
@@ -106,9 +102,8 @@ When ('eu clico em editar o processo com o numero {string}') do |num|
 end
 
 
-Then ('eu vejo que o campo ultima movimentacao do processo com o numero {string} foi editado para {string}') do |num, text|
-  expect(page).to have_content(num)
-  expect(page).to have_content(text)
+Then ('eu vejo que o campo Contato agendado do processo tem a data {string}') do |data|
+  expect(page).to have_content(data)
 end
 
 When ('eu clico em ver detalhes do processo com o numero {string}') do |num|

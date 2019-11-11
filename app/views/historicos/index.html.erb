@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Histórico</h1>
+<hr>
+<%= render @processo.historicos %>
+<br>
+<%= render 'historicos/form' %>
+<hr>
+<%= link_to 'Back', processo_path(@processo) %>
