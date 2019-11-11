@@ -8,7 +8,6 @@ class CreateProcessos < ActiveRecord::Migration[5.1]
       t.string :tipo_acao
       t.string :juizo
       t.string :num_processo
-      t.string :ultima_movimentacao
       t.date :ultimo_contato_cliente
       t.date :contato_agendado
       t.string :adv_principal

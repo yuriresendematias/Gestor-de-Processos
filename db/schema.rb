@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191023235035) do
+ActiveRecord::Schema.define(version: 20191111174622) do
 
   create_table "advogados", force: :cascade do |t|
     t.string "nome"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20191023235035) do
     t.string "n_OAB"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "historicos", force: :cascade do |t|
+    t.string "descricao"
+    t.integer "processo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["processo_id"], name: "index_historicos_on_processo_id"
   end
 
   create_table "processos", force: :cascade do |t|

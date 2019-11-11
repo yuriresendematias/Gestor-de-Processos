@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @historico.descricao %>
+</p>
+
+<p>
+  <strong>Processo:</strong>
+  <%= link_to @historico.processo.num_processo, processo_path(@historico.processo) %>
+</p>
+
+<%= link_to 'Edit', edit_historico_path(@historico) %> |
+<%= link_to 'Back', processo_historicos_path(@historico.processo) %>
