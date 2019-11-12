@@ -96,7 +96,6 @@ When ('eu clico em remover processo com o numero {string}') do |num|
   click_link "d-#{num}"
 end
 
-
 Then ('eu vejo que o processo com o numero {string} foi removido corretamente') do |num|
   expect(page).to have_no_content(num)
 end

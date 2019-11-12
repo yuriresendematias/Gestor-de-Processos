@@ -41,8 +41,6 @@
     <option name="myCommands">
       <command value="rails generate sacaffold Advogado nome:string email:string n_OAB:string" />
       <command value="rails generate scaffold Advogado nome:string email:string n_OAB:string" />
-      <command value="rails db:migrate RAILS_ENV=test" />
-      <command value="cucumber" />
       <command value="rails server" />
       <command value="rails g simple_form:install" />
       <command value="rails s" />
@@ -59,6 +57,8 @@
       <command value="bundle update" />
       <command value="rails generate migration add_index_to_advogados_email" />
       <command value="rake db:migrate" />
+      <command value="rails db:migrate RAILS_ENV=test" />
+      <command value="cucumber" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -216,7 +216,8 @@
       <option name="presentableId" value="Default" />
       <updated>1571635048678</updated>
       <workItem from="1571635061811" duration="1271000" />
-      <workItem from="1573241727832" duration="22788000" />
+      <workItem from="1573241727832" duration="23247000" />
+      <workItem from="1573523696631" duration="6460000" />
     </task>
     <servers />
   </component>
@@ -237,7 +238,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Gestor_de_Processos_master@rails_server.rcov" NAME="rails server Coverage Results" MODIFIED="1573520022021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Gestor-de-Processos-master" />
+    <SUITE FILE_PATH="coverage/Gestor_de_Processos_master@rails_server.rcov" NAME="rails server Coverage Results" MODIFIED="1573525970374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Gestor-de-Processos-master" />
     <SUITE FILE_PATH="coverage/Gestor_de_Processos_master@db_migrate__Gestor_de_Processos_master.rcov" NAME="db:migrate: Gestor-de-Processos-master Coverage Results" MODIFIED="1571635630250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Gestor-de-Processos-master" />
   </component>
 </project>
