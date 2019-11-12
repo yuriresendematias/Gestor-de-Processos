@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -59,3 +59,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #devise
 gem 'devise'
+
+group :production do
+  gem 'pg', '~> 1.1.2-x64-mingw32' # use PostgreSQL in production (Heroku)
+  gem 'rails_12factor' # Heroku-specific production settings
+end

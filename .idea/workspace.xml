@@ -10,6 +10,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="GeneratorOptions">
+    <option name="VCS_SHOW_CONFIRMATION" value="true" />
+    <option name="ENVIRONMENT" value="development" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -25,16 +29,36 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="bundle install" />
-      <command value="bundle update" />
-      <command value="rails server" />
-      <command value="rake db:migrate" />
       <command value="rails generate sacaffold Advogado nome:string email:string n_OAB:string" />
       <command value="rails generate scaffold Advogado nome:string email:string n_OAB:string" />
+      <command value="rails db:migrate RAILS_ENV=test" />
+      <command value="cucumber" />
+      <command value="rails server" />
+      <command value="rails g simple_form:install" />
+      <command value="rails s" />
+      <command value="rails g migration add_advogado_id_to_users advogado:references" />
+      <command value="rails db:reset" />
+      <command value="rails db:migrate" />
+      <command value="rake db:reset" />
+      <command value="rake routes" />
+      <command value="rails g migration create_table_advogados_processos" />
+      <command value="rails g migration create_table_advogados_processos advogados, processos: references" />
+      <command value="rails generate migration add_index_to_users_email" />
+      <command value="rails generate migration add_index_to_advogado_email" />
+      <command value="bundle install" />
+      <command value="bundle update" />
+      <command value="rails generate migration add_index_to_advogados_email" />
+      <command value="rake db:migrate" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -49,7 +73,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Rake.db:migrate: Gestor-de-Processos-master">
+  <component name="RunManager" selected="Rails.rails server">
     <configuration name="Development: Gestor-de-Processos-master" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="Gestor-de-Processos-master" />
       <predefined_log_file enabled="true" id="RUBY_RAILS_SERVER" />
@@ -175,8 +199,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Rake.db:migrate: Gestor-de-Processos-master" />
         <item itemvalue="Rails.rails server" />
+        <item itemvalue="Rake.db:migrate: Gestor-de-Processos-master" />
       </list>
     </recent_temporary>
   </component>
@@ -192,6 +216,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571635048678</updated>
       <workItem from="1571635061811" duration="1271000" />
+      <workItem from="1573241727832" duration="22788000" />
     </task>
     <servers />
   </component>
@@ -203,14 +228,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Gestor_de_Processos_master@rails_server.rcov" NAME="rails server Coverage Results" MODIFIED="1571635616500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Gestor-de-Processos-master" />
+    <SUITE FILE_PATH="coverage/Gestor_de_Processos_master@rails_server.rcov" NAME="rails server Coverage Results" MODIFIED="1573520022021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Gestor-de-Processos-master" />
     <SUITE FILE_PATH="coverage/Gestor_de_Processos_master@db_migrate__Gestor_de_Processos_master.rcov" NAME="db:migrate: Gestor-de-Processos-master Coverage Results" MODIFIED="1571635630250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Gestor-de-Processos-master" />
   </component>
 </project>
