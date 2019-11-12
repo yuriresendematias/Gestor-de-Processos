@@ -31,8 +31,8 @@ Feature: Historico
   Scenario: remover uma descricao do historico
     Given eu estou logado no sistema
     And existe um processo com o numero "123"
-    And o processo com o numero "123" tem um historico com uma descricao "movimentacao do processo"
     And eu estou na pagina do processo com o numero "123"
+    And o processo com o numero "123" tem um historico com uma descricao "movimentacao do processo"
     When eu clico em ver o historico
     And eu vejo a descricao "movimentacao do processo"
     And eu clico em remover do historico com descricao "movimentacao do processo"

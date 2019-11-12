@@ -27,19 +27,23 @@ Then ('eu vejo o historico completo do processo com o numero {string}') do |num|
 end
 
 And ('o processo com o numero {string} tem um historico com uma descricao {string}') do |num, descricao|
-
+  p = Processo.find_by "num_processo = ?", num
+  h = Historico.new(:descricao => descricao, :processo_id => p.id)
+  h.save!
 end
 
 And ('eu vejo a descricao {string}') do |descricao|
-
+  expect(page).to have_content('Descricao '+descricao)
 end
 
 And ('eu clico em remover do historico com descricao {string}') do |descricao|
-
+  click_link "d-#{descricao}"
 end
 
 Then ('eu vejo que a descricao {string} foi removida do processo que tem o numero {string}') do |descricao, num|
-
+  expect(page).to have_content('Histórico - Processo '+num)
+  expect(page).to have_no_content('Descricao '+descricao)
+  expect(page).to have_content('Historico was successfully destroyed')
 end
 
 And ('eu clico em editar o historico da movimentacao {string}') do |descricao|

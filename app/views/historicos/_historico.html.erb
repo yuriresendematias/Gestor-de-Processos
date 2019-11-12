@@ -2,6 +2,6 @@
   <strong>Descricao</strong>
   <%= historico.descricao %>
   <%= link_to 'Edit', edit_processo_historico_path(historico.processo, historico) %>
-  <%= link_to 'Destroy', [historico.processo, historico], method: :delete,
-                         data: {confirm: 'Are you sure?'} %>
+  <%= link_to 'Destroy', [historico.processo, historico], id: "d-#{historico.descricao}", method: :delete,
+                         data: {confirm: 'Are you sure?'}%>
 </p>
