@@ -9,6 +9,7 @@ Feature: Historico
     And eu estou na pagina do processo com o numero "123"
     When eu clico em ver o historico
     And eu preencho o campo de atualizar historico com "Ultima movimentacao"
+    And eu clico em confirmar
     Then eu vejo que o historico do processo com o numero "123" foi atualizado com a descricao "Ultima movimentacao"
 
   Scenario: adicionando uma movimentacao vazia no historico
@@ -23,24 +24,26 @@ Feature: Historico
     Given eu estou logado no sistema
     And existe um processo com o numero "123"
     And eu estou na pagina do processo com o numero "123"
-    When eu clico em historico
+    When eu clico em ver o historico
     Then eu vejo o historico completo do processo com o numero "123"
 
   Scenario: remover uma descricao do historico
     Given eu estou logado no sistema
-    And existe um processo com o numero "123" com um historico que tem uma descricao "movimentacao do processo"
+    And existe um processo com o numero "123"
+    And o processo com o numero "123" tem um historico com uma descricao "movimentacao do processo"
     And eu estou na pagina do processo com o numero "123"
-    When eu clico em historico
+    When eu clico em ver o historico
     And eu vejo a descricao "movimentacao do processo"
-    And eu clico em remover do historico
-    Then eu vejo que a descricao "movimentacao do processo" foi removida do processo "123"
+    And eu clico em remover do historico com descricao "movimentacao do processo"
+    Then eu vejo que a descricao "movimentacao do processo" foi removida do processo que tem o numero "123"
 
   Scenario: editar uma descricao do historico
     Given eu estou logado no sistema
-    And existe um processo com o numero "123" com um historico que tem uma descricao "movimentacao do processo"
+    And existe um processo com o numero "123"
+    And o processo com o numero "123" tem um historico com uma descricao "movimentacao do processo"
     And eu estou na pagina do processo com o numero "123"
-    When eu clico em historico
+    When eu clico em ver o historico
     And eu vejo a descricao "movimentacao do processo"
-    And eu clico em editar do historico
+    And eu clico em editar o historico da movimentacao "movimentacao do processo"
     And eu preencho o campo de atualizar historico com "Ultima movimentacao"
-    Then eu vejo que a descricao do historico do processo com o numero "123" foi atualizada
+    Then eu vejo que a descricao do historico do processo com o numero "123" foi atualizada para "Ultima movimentacao"
