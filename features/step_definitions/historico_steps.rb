@@ -47,9 +47,9 @@ Then ('eu vejo que a descricao {string} foi removida do processo que tem o numer
 end
 
 And ('eu clico em editar o historico da movimentacao {string}') do |descricao|
-
+  click_link "e-#{descricao}"
 end
 
-Then ('eu vejo que a descricao do historico do processo com o numero {string} foi atualizada para {string}') do |num, descricao|
-
+Then ('eu vejo que a descricao do historico foi atualizada com sucesso') do
+  expect(page).to have_content('Historico was successfully updated.')
 end

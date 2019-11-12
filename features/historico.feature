@@ -47,4 +47,5 @@ Feature: Historico
     And eu vejo a descricao "movimentacao do processo"
     And eu clico em editar o historico da movimentacao "movimentacao do processo"
     And eu preencho o campo de atualizar historico com "Ultima movimentacao"
-    Then eu vejo que a descricao do historico do processo com o numero "123" foi atualizada para "Ultima movimentacao"
+    And eu clico em confirmar
+    Then eu vejo que a descricao do historico foi atualizada com sucesso
