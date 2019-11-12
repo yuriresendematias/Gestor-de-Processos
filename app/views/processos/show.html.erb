@@ -67,10 +67,8 @@
 
 
 <hr>
-<h2>Histórico completo</h2>
 
-
-<%= link_to 'Historico', processo_historicos_path(@processo) %> |
-<%= link_to 'Edit', edit_processo_path(@processo) %> |
+<%= link_to 'Historico', processo_historicos_path(@processo), id: "historico" %> |
+<%= link_to 'Edit', edit_processo_path(@processo), id: "edit" %> |
 <%= link_to 'Back', processos_path %>
 

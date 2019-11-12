@@ -33,7 +33,7 @@ class HistoricosController < ApplicationController
         format.html { redirect_to @historico, notice: 'Historico was successfully created.' }
         format.json { render :show, status: :created, location: @historico }
       else
-        format.html { render :new }
+        format.html { redirect_to processo_historicos_url(@processo), notice: 'Unable to update history with empty description.' }
         format.json { render json: @historico.errors, status: :unprocessable_entity }
       end
     end
@@ -56,9 +56,10 @@ class HistoricosController < ApplicationController
   # DELETE /historicos/1
   # DELETE /historicos/1.json
   def destroy
+    @processo = @historico.processo
     @historico.destroy
     respond_to do |format|
-      format.html { redirect_to historicos_url, notice: 'Historico was successfully destroyed.' }
+      format.html { redirect_to processo_historicos_url(@processo), notice: 'Historico was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
