@@ -19,7 +19,7 @@ Then ('eu vejo que o historico do processo com o numero {string} foi atualizado 
 end
 
 Then ('eu vejo uma mensagem avisando que o historico nao foi atualizado') do
-
+  expect(page).to have_content('Unable to update history with empty description.')
 end
 
 Then ('eu vejo o historico completo do processo com o numero {string}') do |num|

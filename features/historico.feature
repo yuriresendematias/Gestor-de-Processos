@@ -18,6 +18,7 @@ Feature: Historico
     And eu estou na pagina do processo com o numero "123"
     When eu clico em ver o historico
     And eu preencho o campo de atualizar historico com ""
+    And eu clico em confirmar
     Then eu vejo uma mensagem avisando que o historico nao foi atualizado
 
   Scenario: ver o historico do processo
