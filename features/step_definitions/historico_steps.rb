@@ -23,7 +23,7 @@ Then ('eu vejo uma mensagem avisando que o historico nao foi atualizado') do
 end
 
 Then ('eu vejo o historico completo do processo com o numero {string}') do |num|
-
+  expect(page).to have_content('Histórico - Processo '+num)
 end
 
 And ('o processo com o numero {string} tem um historico com uma descricao {string}') do |num, descricao|
