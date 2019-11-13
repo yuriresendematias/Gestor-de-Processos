@@ -10,3 +10,4 @@ Rails.application.routes.draw do
   resources :processos do
     resources :historicos
   end
+end
