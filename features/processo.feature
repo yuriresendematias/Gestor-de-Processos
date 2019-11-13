@@ -14,7 +14,6 @@ Feature: Processo
     And eu preencho o campo de Tipo acao com "Monitória"
     And eu preencho o campo de Juizo com "2ª vara cívil - GUS"
     And eu preencho o campo de numero com "123456-789.0"
-    And eu preencho o campo de Ultima movimentacao com "Aguardando despacho"
     And eu preencho o campo de Ultimo contato cliente com o dia "1", o mes "August" e o ano "2019"
     And eu preencho o campo de Contato agendado com o dia "31", o mes "December" e o ano "2019"
     And eu preencho o campo de Adv principal com "nome do advogado"
@@ -36,9 +35,9 @@ Feature: Processo
     And existe um processo com o numero "123"
     And eu vejo o processo com o numero "123"
     When eu clico em editar o processo com o numero "123"
-    And eu preencho o campo de Ultima movimentacao com "movimentação mais recente"
+    And eu preencho o campo de Contato agendado com o dia "31", o mes "December" e o ano "2020"
     And eu clico em confirmar
-    Then eu vejo que o campo ultima movimentacao do processo com o numero "123" foi editado para "movimentação mais recente"
+    Then eu vejo que o campo Contato agendado do processo tem a data "Contato agendado: 2020-12-31"
 
   Scenario: exibindo detalhes de um processo
     Given eu estou logado no sistema
