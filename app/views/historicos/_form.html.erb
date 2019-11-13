@@ -1,0 +1,10 @@
+<%= form_with(model: [@processo, @processo.historicos.build], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :Atualizar_historico %>
+    <%= form.text_field :descricao, id: :historico_descricao %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit value='submit' %>
+  </div>
+<% end %>

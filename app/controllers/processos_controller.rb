@@ -1,6 +1,6 @@
 class ProcessosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_processo, only: [:show, :edit, :update, :destroy]
+  before_action :set_processo, only: [:show, :edit, :update, :destroy, :historico_processo]
 
   # GET /processos
   # GET /processos.json
@@ -66,6 +66,9 @@ class ProcessosController < ApplicationController
     end
   end
 
+  def historico_processo
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_processo
@@ -74,6 +77,6 @@ class ProcessosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def processo_params
-      params.require(:processo).permit(:cliente, :ex_adversa, :natureza, :assunto, :tipo_acao, :juizo, :num_processo, :ultima_movimentacao, :ultimo_contato_cliente, :contato_agendado, :adv_principal, :adv_assistente)
+      params.require(:processo).permit(:cliente, :ex_adversa, :natureza, :assunto, :tipo_acao, :juizo, :num_processo, :ultimo_contato_cliente, :contato_agendado, :adv_principal, :adv_assistente)
     end
 end
