@@ -9,6 +9,15 @@ Given ('eu estou logado no sistema') do
   expect(page).to have_content('Signed in successfully')
 end
 
+And ('Existe um cadastro com o email {string} e a senha {string}')  do |email, senha|
+  u = User.new(:email => email, :password => senha, :password_confirmation => senha)
+  u.save!
+end
+
+Then ('Eu vejo que o login foi bem  sucedido') do
+  expect(page).to have_content('Signed in successfully')
+end
+
 Given ('Eu estou na tela de log in') do
   visit 'users/sign_in'
   expect(page).to have_content('Log in')
@@ -23,7 +32,7 @@ And ('Eu preencho o campo email com {string}') do |email|
   fill_in 'Email', :with => email
 end
 
-And ('O campo senha com {string}') do |senha|
+And ('Eu preencho o campo senha com {string}') do |senha|
   fill_in 'Password', :with => senha
 end
 
@@ -35,8 +44,8 @@ And ('Eu clico no botao Sign up') do
   click_button 'Sign up'
 end
 
-Then ('Eu vejo {string} e o cadastro foi realizado com sucesso') do |sucesso|
-  expect(page).to have_content(sucesso)
+Then ('Eu vejo uma mensagem indicando que o cadastro foi realizado com sucesso') do
+  expect(page).to have_content('Welcome! You have signed up successfully.')
 end
 
 And ('Eu clico no botao log in') do
@@ -61,12 +70,6 @@ end
 
 Then ('Eu recebo a notificacao no email e volto para tela Log in') do
   expect(page).to have_content('Log in')
-end
-
-And ('Existe um usuario com o email {string}') do |email|
-  u = User.new(:email => email, :password => '123456', :password_confirmation => '123456')
-  u.save!
-
 end
 
 Then ('E vejo uma tela de erro indicando que o email ja esta cadastrado') do
