@@ -1,5 +1,4 @@
 class ProcessosController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_processo, only: [:show, :edit, :update, :destroy, :historico_processo]
 
   # GET /processos

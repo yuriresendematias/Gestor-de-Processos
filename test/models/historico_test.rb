@@ -2,7 +2,9 @@ require 'test_helper'
 
 class HistoricoTest < ActiveSupport::TestCase
   test 'must create history with description' do
-    historico = Historico.new descricao: 'Descricao da movimentacao', processo_id: '1'
+    processo = Processo.new cliente: 'nome do cliente', num_processo: '123123123'
+    processo.save
+    historico = Historico.new descricao: 'Descricao da movimentacao', processo_id: processo.id
     assert historico.save
   end
 

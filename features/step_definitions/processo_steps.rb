@@ -1,14 +1,3 @@
-Given ('eu estou logado no sistema') do
-  u = User.new(:email => 'usuario@email.com', :password => '123456', :password_confirmation => '123456')
-  u.save!
-  visit '/users/sign_in'
-  expect(page).to have_content('Log in')
-  fill_in 'Email' , :with => 'usuario@email.com'
-  fill_in 'Password', :with => '123456'
-  click_button 'Log in'
-  expect(page).to have_content('Signed in successfully')
-end
-
 And ('eu estou na pagina de processos') do
   visit '/processos'
   expect(page).to have_content('Processos')
