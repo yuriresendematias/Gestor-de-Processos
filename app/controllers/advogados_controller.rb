@@ -1,5 +1,4 @@
 class AdvogadosController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_advogado, only: [:show, :edit, :update, :destroy]
 
   # GET /advogados

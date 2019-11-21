@@ -13,6 +13,6 @@ class ProcessoTest < ActiveSupport::TestCase
 
   test 'should not create processo without cliente' do
     processo = Processo.new num_processo: '12345'
-    assert_not historico.save
+    assert_not processo.save
   end
 end

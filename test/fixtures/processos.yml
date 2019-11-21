@@ -8,7 +8,6 @@ one:
   tipo_acao: MyString
   juizo: MyString
   num_processo: MyString
-  ultima_movimentacao: MyString
   ultimo_contato_cliente: 2019-10-20
   contato_agendado: 2019-10-20
   adv_principal: MyString
@@ -22,7 +21,6 @@ two:
   tipo_acao: MyString
   juizo: MyString
   num_processo: MyString
-  ultima_movimentacao: MyString
   ultimo_contato_cliente: 2019-10-20
   contato_agendado: 2019-10-20
   adv_principal: MyString
