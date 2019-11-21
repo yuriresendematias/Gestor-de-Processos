@@ -4,8 +4,9 @@ class CreateAdvogados < ActiveRecord::Migration[5.1]
       t.string :nome
       t.string :email
       t.string :n_OAB
+      t.references :user, foreing_key: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
