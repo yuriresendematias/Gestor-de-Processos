@@ -75,6 +75,3 @@ end
 Then ('E vejo uma tela de erro indicando que o email ja esta cadastrado') do
   assert_selector('div#error_explanation')
 end
-
-
-
