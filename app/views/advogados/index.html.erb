@@ -19,7 +19,6 @@
     <% @advogados.each do |advogado| %>
       <tr>
         <td><%= advogado.nome %></td>
-        <td><%= advogado.email %></td>
         <td><%= advogado.n_OAB %></td>
         <td><%= link_to 'Show', advogado, id: "s-#{advogado.nome}" %></td>
         <td><%= link_to 'Edit', edit_advogado_path(advogado), id: "e-#{advogado.nome}" %></td>
