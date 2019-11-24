@@ -1,8 +1,14 @@
 require 'test_helper'
 
 class ProcessoTest < ActiveSupport::TestCase
-  test 'must create processo with num_processo and cliente' do
+  test 'must create processo with num_processo, cliente and advogado' do
+    u = User.new email: "yuri@gmail.com", password: "123123"
+    u.save
+    advogado = Advogado.new nome: 'yuri', n_OAB: '123456'
+    advogado.user = u
+    advogado.save
     processo = Processo.new num_processo: '12345', cliente: 'cliente'
+    processo.advogado = advogado
     assert processo.save
   end
 
