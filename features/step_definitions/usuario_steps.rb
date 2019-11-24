@@ -1,6 +1,9 @@
-Given ('eu estou logado no sistema') do
+Given ('eu estou logado no sistema como o usuario de nome {string}') do |nome|
   u = User.new(:email => 'usuario@email.com', :password => '123456', :password_confirmation => '123456')
   u.save!
+  a = Advogado.new(nome: nome, n_OAB: "123123")
+  a.user = u
+  a.save
   visit '/users/sign_in'
   expect(page).to have_content('Log in')
   fill_in 'Email' , :with => 'usuario@email.com'
