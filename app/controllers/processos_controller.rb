@@ -5,9 +5,9 @@ class ProcessosController < ApplicationController
   # GET /processos.json
   def index
     if params[:search]
-      @processos = Processo.all.search(params[:search])
+      @processos = current_user.advogado.processos.search(params[:search])
     else
-      @processos = Processo.all
+      @processos = current_user.advogado.processos
     end
   end
 
@@ -29,6 +29,7 @@ class ProcessosController < ApplicationController
   # POST /processos.json
   def create
     @processo = Processo.new(processo_params)
+    @processo.advogado = current_user.advogado
 
     respond_to do |format|
       if @processo.save
@@ -76,6 +77,7 @@ class ProcessosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def processo_params
-      params.require(:processo).permit(:cliente, :ex_adversa, :natureza, :assunto, :tipo_acao, :juizo, :num_processo, :ultimo_contato_cliente, :contato_agendado, :adv_principal, :adv_assistente)
+      params.require(:processo).permit(:cliente, :ex_adversa, :natureza, :assunto, :tipo_acao, :juizo,
+                                       :num_processo, :ultimo_contato_cliente, :contato_agendado)
     end
 end
