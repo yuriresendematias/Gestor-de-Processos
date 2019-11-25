@@ -4,10 +4,10 @@ class AdvogadosController < ApplicationController
   # GET /advogados
   # GET /advogados.json
   def index
-    if current_user.advogado != nil
-      @advogado = current_user.advogado
-    else
+    if current_user.advogado.nil?
       redirect_to(:action => 'new')
+    else
+      @advogado = current_user.advogado
     end
   end
 
