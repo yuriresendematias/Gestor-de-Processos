@@ -81,18 +81,6 @@ Then ('Eu vejo que a minha conta foi editada com sucesso') do
   expect(page).to have_content('Your account has been updated successfully.')
 end
 
-# When ('Eu clico em Forgot your password') do
-#   click_link 'Forgot your password?'
-# end
-#
-# And ('Clico em Send me reset password instructions') do
-#   click_button 'Send me reset password instructions'
-# end
-#
-# Then ('Eu recebo a notificacao no email e volto para tela Log in') do
-#   expect(page).to have_content('Log in')
-# end
-
 Then ('E vejo uma tela de erro indicando que o email ja esta cadastrado') do
   assert_selector('div#error_explanation')
 end

@@ -6,6 +6,15 @@ class ProcessosController < ApplicationController
   def index
     if params[:search]
       @processos = current_user.advogado.processos.search(params[:search])
+      if params[:search].empty?
+        respond_to do |format|
+          format.html { redirect_to processos_url, notice: 'Fill in the search field.' }
+        end
+      elsif @processos.empty?
+        respond_to do |format|
+          format.html { redirect_to processos_url, notice: 'Search returned no results.' }
+        end
+      end
     else
       @processos = current_user.advogado.processos
     end
