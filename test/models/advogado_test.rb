@@ -27,4 +27,9 @@ class AdvogadoTest < ActiveSupport::TestCase
     advogado.user = u
     assert_not advogado.save
   end
+
+  test 'should not create advogado without user' do
+    advogado = Advogado.new nome: 'Marcos', n_OAB: '123456'
+    assert_not advogado.save
+  end
 end
