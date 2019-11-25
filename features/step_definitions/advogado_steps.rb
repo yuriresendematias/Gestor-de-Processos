@@ -7,7 +7,7 @@ And ('Eu clico no link Edit') do
   click_link "Edit"
 end
 
-And ('O campo N oab com {string}') do |n_OAB|
+And ('Eu preencho o campo N oab com {string}') do |n_OAB|
   fill_in 'N oab', :with => n_OAB
 end
 
